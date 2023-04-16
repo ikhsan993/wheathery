@@ -27,9 +27,9 @@ const App = () => {
         <Box display="flex" justifyContent="center" maxWidth={'md'} margin="auto">
           <Routes>
           <>
-            <Route path="/" element= {<Navigate to="/search" />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/result" element={<SearchResult /> } />
+            <Route path="/" element = { user ? <Navigate to="/search" /> : <Navigate to="/auth" /> } />
+            <Route path="/search" element={ user ? <SearchPage /> : <Navigate to="/auth" />} />
+            <Route path="/result" element={ user ? <SearchResult /> : <Navigate to="/auth" /> } />
           </>
             <Route
               path="/auth"
